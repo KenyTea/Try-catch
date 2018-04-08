@@ -29,11 +29,11 @@ namespace HwTryCatch
             //Console.ReadLine();
             #endregion
 
+            #region Array
             /*
              2.	Написать программу, которая обращается к элементам массива по индексу и выходит за его пределы.
              После обработки исключения вывести в финальном блоке сообщение о завершении обработки массива.
              */
-            #region Array
             try
             {
                 int[] array = new int[5];
@@ -46,7 +46,29 @@ namespace HwTryCatch
             }
             #endregion
 
+            TestExe test1 = new TestExe();
+
+            test1.Method1();
+           
+
             Console.ReadLine();
+        }
+
+        public class TestExe
+        {
+            public void Method1()
+            {
+                try { Method2(); }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Catch: {e.Message}");
+                }
+            }
+
+            public void Method2()
+            {
+                throw new Exception("My Exception");
+            }
         }
 
         #region ForWEB
